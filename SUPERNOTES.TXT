@@ -165,7 +165,7 @@ RPM -> rpm
 ==============================================================================================
 PLAN -> Code -> ANa -> BUild -> UT -> Dep2Repo -> Dep2QA -> AT ->> CC
 --------------------------------------------------------------------------
-JIRA - Git -> SonarQube -> JUNIT -> Artifactory -> Ansible -> Sel -> Jacoco
+JIRA - Git -> SonarQube -> MAVEN -> JUNIT -> Artifactory -> Ansible -> Sel -> Jacoco
 ================================================================================
                         INTG between -TEAM - PROCESS - TEAM
 ==============================================================================
@@ -204,12 +204,35 @@ Tomcat Admin
 Apache Admin
 MySql Admini
 JAVA TRACKING
+========================================================
+Basic Workflow with Artifactory
+============================================================
+How to upload Package to Artifactory?
+            VIA Maven?
+Step 1 - Create a ACCESS [ ADMIN ]
+Step 2 - Create a REPO   [ ADMIN ]
+Step 3 - Setup a maven   [ ADMIN & USER ]
+Step 4 - Goal?
 
 
+============Artifactory Authentication and Authrization=========================================
+Authentication - WHO CAN LOG IN to Artifactory?
+                    INTERNAL DB [DEFault]
+                    LDAP  
+                    Crowd 
+                    JIRA  
+                    SAML SSO  
+                    OAuth SSO  
+                    HTTP SSO 
+Authrization - WHO CAN DO WHAT?
+                    Permissions 
+                    Groups 
+                    Users 
 
-
-
-
+EXCERCISE - 
+1 PERMISION with DEPLOY/CACHE --> GROUP--> USER
+1 PERMISION with DELETE --> GROUP--> USER
+1 USER with admin
 
 
 
