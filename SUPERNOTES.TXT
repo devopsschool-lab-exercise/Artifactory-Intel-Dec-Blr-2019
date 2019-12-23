@@ -394,3 +394,6 @@ HA Installation and Setup
 Log Analsys
 Artifact storage
 Clean up policies
+
+How to enforce Specific java in maven
+https://www.mkyong.com/maven/how-to-tell-maven-to-use-java-8/
