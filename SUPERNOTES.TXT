@@ -397,3 +397,267 @@ Clean up policies
 
 How to enforce Specific java in maven
 https://www.mkyong.com/maven/how-to-tell-maven-to-use-java-8/
+====================================================================================
+Working with Gradle Repo
+===========================
+Step 1  - Install JDK
+Step 2 -  Install Gradle - Unzip - and Set GRADLE_HOME/bin to PATH
+Step 3 - 
+FILE  - build.gradle
+        gradle.properties -   
+        https://github.com/devopsschool-sample-projects/artifactory-gradle-example    
+Step 4  - craete a gradle repo
+Step 5  - Modify build.gradle and gradle.properties accordingly
+Step 6 - gradle tasks...
+
+
+Working with Docker Repo 
+===================================
+Step 1 - Install Docker
+https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
+Step 2 - Create Docker Image
+Step 3 - Create a repo on Artifactory
+Step 4 - SEPC
+# Not using HTTPS requires Docker clients to add an --insecure-registry flag to DOCKER_OPTS
+export DOCKER_OPTS='--insecure-registry 13.235.238.10:8081'
+# docker pull / push 13.235.238.10:8081/<REPOSITORY_KEY>/<IMAGE>:<TAG>
+# docker login -u <USER_NAME> -p <USER_PASSWORD> 13.235.238.10:8081
+Step 5 - docker login -u admin -p password 13.235.238.10:8081
+Step 6 - docker push 13.235.238.10:8081/intel/ub-git
+Step 7 - 
+
+NOTES
+https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-insecure-registry
+   {
+        "insecure-registries" : ["13.235.238.10:8081"]
+    }
+ 89  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+   90  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   91  sudo yum install –y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   92  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+   93  sudo yum install -y docker-ce
+   94  sudo systemctl enable docker
+   95  sudo systemctl start docker\
+   96  sudo systemctl start docker
+   97  docker version
+   98  clear
+   99  ls
+  100  vi Dockerfile
+  101  docker images
+  102  docker build -t ub-git .
+  103  vi Dockerfile
+  104  docker build -t ub-git .
+  105  docker images
+  106  docker login
+  107  clear
+  108  docker login -u admin -p password 13.235.238.10:8081
+  109  export DOCKER_OPTS="--insecure-registry"
+  110  docker login -u admin -p password 13.235.238.10:8081
+  111  export DOCKER_OPTS='--insecure-registry 13.235.238.10:8081'
+  112  docker login -u admin -p password 13.235.238.10:8081
+  113  systemctl stop docker
+  114  systemctl start docker
+  115  docker login -u admin -p password 13.235.238.10:8081
+  116  vi  /etc/docker/daemon.json
+  117  systemctl stop docker
+  118  systemctl start docker
+  119  docker login -u admin -p password 13.235.238.10:8081
+  120  clear
+  121  ls
+  122  clear
+  123  os
+  124  docker login -u admin -p password 13.235.238.10:8081
+  125  docker images
+  126  docker push 13.235.238.10:8081/intel/ub-git
+  127  docker tag ub-git 13.235.238.10:8081/intel/ub-git
+  128  docker images
+  129  docker push 13.235.238.10:8081/intel/ub-git
+  130  history
+
+========13.233.208.219===============================================================================
+https://www.jfrog.com/confluence/display/RTF/MySQL#MySQL-CreatingtheArtifactoryMySQLDatabase
+
+Artifactory with MYSQL
+Step 1 - Download artifactory
+
+Step 2 - Setup a mysql server and get a database/user id n password
+How to Install MySQL on CentOS 7
+https://www.devopsschool.com/tutorial/mysql/how-to-install-mysql-on-centos-7.html
+
+Setting, Changing And Resetting MySQL Root Passwords
+https://www.devopsschool.com/tutorial/mysql/setting-changing-and-resetting-mysql-root-passwords.html
+
+Connect to a MySQL database remotely
+https://www.devopsschool.com/tutorial/mysql/connect-to-a-mysql-database-remotely.html
+
+Step 3 - Modify artifactory config file
+
+Step 4 - Copy a db dribver for mysql
+
+Step 5 - start a artifactory
+
+
+
+mysql performance tuning best practices
+mysql security tuning best practices
+
+=======================================================================================
+=======================================================================================
+BACKUP of SYSTEM
+        USING Artifactory
+        Manual
+                - TAKE A CRUDE BACKUP OF DB
+                - TAKE A CRUDE BACKUP OF FILESTORE
+                - ALL CONFIG
+        ====================================
+        CONFIG FILE of Artifactory
+        DATABASE - META
+        FILESTORE
+
+BACKUP OF REPO
+        USING Artifactory
+========================================================
+JAVA PS troubleshooting
+https://docs.oracle.com/javase/7/docs/technotes/tools/share/jstack.html
+
+13.235.238.10
+
+===================================================
+REPLICATION
+============================
+http://13.235.238.10:8081/
+
+http://13.233.208.219:8081/artifactory/webapp/
+
+===========================================================
+Troubleshooting
+==============================
+https://www.devopsschool.com/blog/if-a-linux-build-server-suddenly-starts-getting-slow-what-would-you-check/
+
+
+System Level troubleshooting
+
+        a. RAM related issues
+
+        b. Disk Space related Issues
+
+        c. Disk I/O read write issues
+
+        d. Network Hardware issues
+
+        e. Mount issues
+
+        f. Too Many process running in the machine
+
+Application Level troubleshooting
+a. Application is not behaving properly. Hit to Application log file OR application server log file OR web server Log file and try to understand the issues.
+
+b. zombie process issues – Find out if any as such process which is causing the system performance issues.
+
+c. Application Log – depends on the application installed, this can be referred and make use of the experience with the project and troubleshoot.
+
+d. Web Server Log – we can check http, tomcat log as well.
+
+e. Application Server Log – We can see jboss, weblogic logs to see if the application server response/receive time is the issues for slowness.
+
+f. Memory Leak of any application – This is one of well known issues in lunux based server due to bad application coding. Many times this can be resolved either by fixing the code or rebooting. But many other solutions are there to apply.
+
+ Dependent Services troubleshooting
+
+a. SMTP Response time – SMTP server is not responding faster which is causing delay in response and queue up many processes.
+
+b. Network issues – There are many System performance issues is dependent on network or service which is depends on the network.
+
+c. Firewall related issues
+
+d. Antivirus related issues
+=========================================================================================
+SHARDING and REPLICAS
+=====================================
+https://www.jfrog.com/confluence/display/RTF/HA+Installation+and+Setup
+
+
+QA
+How to do NFS sharding in Artifactory?
+
+How to setup NFS?
+https://www.devopsschool.com/blog/setup-nfs-server-and-use-inside-a-kubernetes-pods-in-rhel-centos7/
+
+==================MASTER Node 1====================================
+1. Setup a MYSQL - Create database
+2. Setup NFS server (RW)
+3. setup db.properties as per mysql
+4. Setup binarystore.xml with NFS
+5. copy database connector to tomcat Directory
+6. ----- setup ha-node.properties with 
+node.id=art1
+context.url=http://13.233.208.219:8081/artifactory
+membership.port=10001
+primary=true
+artifactory.ha.data.dir=/tmp/mylocal/ha-data
+artifactory.ha.backup.dir=/tmp/mylocal/ha-backup
+7. Start a Artifactory
+
+13.233.208.219
+
+==================slave Node 1====================================
+13.126.85.32
+1. Setup a MYSQL - Create database
+2. Setup NFS server (RW)
+3. setup db.properties as per mysql
+4. Setup binarystore.xml with NFS
+5. copy database connector to tomcat Directory
+6. ----- setup ha-node.properties with 
+node.id=art2
+context.url=http://13.233.208.220:8081/artifactory
+membership.port=10001
+primary=false
+artifactory.ha.data.dir=/tmp/mylocal/ha-data
+artifactory.ha.backup.dir=/tmp/mylocal/ha-backup
+7. Start a Artifactory
+
+===============================Setup loadbalancer with ART 1 and ART 2
+
+How to setup Docker repository in Artifactory and push/pull images?
+https://www.devopsschool.com/blog/how-to-setup-docker-repository-in-artifactory-and-push-pull-images/
+
+Setup Artifactory pro 6.1.0 using Docker containtainer
+https://www.devopsschool.com/blog/setup-artifactory-pro-6-1-0-using-docker-containtainer/
+
+How to setup Docker Registry/Repository using Jfrog Artifactory
+https://www.devopsschool.com/blog/how-to-setup-docker-registry-repository-using-jfrog-artifactory/
+
+Artifactory Install and Configurations Guide
+https://www.devopsschool.com/blog/artifactory-install-and-configurations-guide/
+
+Upgrade Artifactory from Open-Source (OSS) to PRO?
+https://www.devopsschool.com/blog/upgrade-artifactory-from-open-source-oss-to-pro/
+
+What is difference between artifactory and bintray?
+https://www.devopsschool.com/tutorial/artifactory/difference-between-artifactory-and-bintray.html
+
+Artifactory Terminology and Navigation
+https://www.devopsschool.com/tutorial/artifactory/artifactory-terminology-and-navigation.html
+
+Artifactory Install and Configuration
+https://www.devopsschool.com/tutorial/artifactory/artifactory-install-and-configuration.html
+=================================================
+http://rajeshkumar.xyz/
+
+SHA1 to SHA256 
+https://www.jfrog.com/confluence/display/RTF/Checksum-Based+Storage
+
+=====================================================
+Step 1- Install Jenkins
+
+Step 2- Install Artifactory
+
+Step 3 - Install ARTIFACTORY plusgin in Jenkins
+
+Step 4 - Config artifacvtory plugins in Jenkins
+
+Step 5 - Upload from Jenkins 
+
+Ste6 - WATCH IT BUILD 
+
+YOUTUBE - DEVOPSSCHOOL
